@@ -19,11 +19,12 @@ function App() {
     const helper = new DigitHelper(inMemoryFormula, currentTerm);
     setClearButton("C");
     const digit = e.target.value;
-    const formula =
+    let formula =
       inMemoryFormula === null || startNewTerm
         ? digit
         : inMemoryFormula + digit;
     setStartNewTerm(0);
+    formula = helper.trimLeadingZeros(formula)
     setInMemoryFormula(formula);
     const localCurrentDisplay = helper.getCurrentDisplay(digit);
     setCurrentTerm(localCurrentDisplay);

@@ -22,4 +22,12 @@ export default function DigitHelper(inMemoryFormula, currentTerm) {
     }
     return false;
   };
+
+  this.trimLeadingZeros = (formula) => {
+    if (formula === "0") { 
+      return formula;
+    }
+    const leadingZeros = /^0/g;
+    return formula.replaceAll(leadingZeros, "");
+  };
 }
