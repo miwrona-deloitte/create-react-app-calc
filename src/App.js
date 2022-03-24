@@ -24,7 +24,7 @@ function App() {
         ? digit
         : inMemoryFormula + digit;
     setStartNewTerm(0);
-    formula = helper.trimLeadingZeros(formula)
+    formula = helper.trimLeadingZeros(formula);
     setInMemoryFormula(formula);
     const localCurrentDisplay = helper.getCurrentDisplay(digit);
     setCurrentTerm(localCurrentDisplay);
@@ -149,24 +149,26 @@ function App() {
 
   return (
     <>
-      <div className="screen">
-        <p className={"display " + displayFont}>{display}</p>
-      </div>
-      <div className="keyboard">
-        <div className="grey-buttons">
-          <div className="horizontal-symbols">
-            <Button onButtonClick={handleClear} sign={clearButton} />
-            <Button sign="+/-" onButtonClick={reverseSign} />
-            <Button sign="%" />
-          </div>
-          <Digits handleDigit={handleDigit} handleComma={handleComma} />
+      <div className="calc">
+        <div className="screen">
+          <p className={"display " + displayFont}>{display}</p>
         </div>
-        <div className="vertical-symbols">
-          <Button sign="÷" onButtonClick={handleOperator} />
-          <Button sign="x" onButtonClick={handleOperator} />
-          <Button sign="-" onButtonClick={handleOperator} />
-          <Button sign="+" onButtonClick={handleOperator} />
-          <Button sign="=" onButtonClick={equals} />
+        <div className="keyboard">
+          <div className="grey-buttons">
+            <div className="horizontal-symbols">
+              <Button onButtonClick={handleClear} sign={clearButton} />
+              <Button sign="+/-" onButtonClick={reverseSign} />
+              <Button sign="%" />
+            </div>
+            <Digits handleDigit={handleDigit} handleComma={handleComma} />
+          </div>
+          <div className="vertical-symbols">
+            <Button sign="÷" onButtonClick={handleOperator} />
+            <Button sign="x" onButtonClick={handleOperator} />
+            <Button sign="-" onButtonClick={handleOperator} />
+            <Button sign="+" onButtonClick={handleOperator} />
+            <Button sign="=" onButtonClick={equals} />
+          </div>
         </div>
       </div>
     </>

@@ -1,10 +1,19 @@
+:root {
+  --border: #424242 1px solid;
+}
+
+.calc {
+  padding: 10px;
+}
+
 .screen {
-  height: 80px;
+  height: 78px;
   background-color: #000000c7;
-  width: 220px;
+  width: 218px;
   display: flex;
   justify-content: flex-end;
   border-radius: 10px 10px 0 0;
+  border:  var(--border);
 }
 
 .screen > .display {
@@ -33,7 +42,10 @@
   height: 46px;
   line-height: 46px;
   background-color: rgb(112, 112, 112);
-  border: rgb(100, 100, 100) 1px solid;
+  border-left: var(--border);
+  border-top:  var(--border);
+  border-bottom: none;
+  border-right: none;
   color: #fff;
   text-align: center;
   font-family: "Arial", sans-serif;
@@ -62,11 +74,16 @@
   width: 165px;
 }
 
-.digits {
+.digits > .button:nth-last-of-type(-n + 2) {
+  border-bottom:  var(--border);
 }
 
 .horizontal-symbols button {
   background-color: #383838e0;
+}
+
+.vertical-symbols > .button:nth-last-child(1) {
+  border-bottom:  var(--border);
 }
 
 .vertical-symbols {
@@ -77,4 +94,5 @@
 
 .vertical-symbols > .button {
   background-color: rgba(255, 153, 0, 0.87);
+  border-right:  var(--border);
 }
