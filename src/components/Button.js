@@ -1,5 +1,10 @@
 const Button = ({ sign, onButtonClick }) => {
-  const className = sign === 0 ? "button wide" : "button";
+  let className = "button";
+  if (sign === 0) {
+    className = className + " wide border-bottom-left-radius";
+  } else if (sign === "=") {
+    className = className + " border-bottom-right-radius";
+  }
   return (
     <button
       onClick={onButtonClick}
