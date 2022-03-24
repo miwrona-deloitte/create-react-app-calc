@@ -11,27 +11,28 @@ function App() {
   const [inMemoryFormula, setInMemoryFormula] = React.useState(null);
   const [clearButton, setClearButton] = React.useState("AC");
   const [startNewTerm, setStartNewTerm] = React.useState(0);
-  const OPERATORS = ["/", "*", "-", "+"];
   const [displayFont, setDisplayFont] = React.useState("regular-font");
 
+  const OPERATORS = ["/", "*", "-", "+"];
+
   const handleDigit = (e) => {
-    let helper = new DigitHelper(inMemoryFormula, currentTerm);
+    const helper = new DigitHelper(inMemoryFormula, currentTerm);
     setClearButton("C");
-    let digit = e.target.value;
+    const digit = e.target.value;
     const formula =
       inMemoryFormula === null || startNewTerm
         ? digit
         : inMemoryFormula + digit;
     setStartNewTerm(0);
     setInMemoryFormula(formula);
-    let localCurrentDisplay = helper.getCurrentDisplay(digit);
+    const localCurrentDisplay = helper.getCurrentDisplay(digit);
     setCurrentTerm(localCurrentDisplay);
     setDisplay(helper.isOperatorInMemory() ? localCurrentDisplay : formula);
   };
 
   const handleComma = (e) => {
-    let comma = e.target.value;
-    let helper = new CommaHelper(inMemoryFormula, currentTerm);
+    const comma = e.target.value;
+    const helper = new CommaHelper(inMemoryFormula, currentTerm);
     if (helper.canConcatenate(comma)) {
       setInMemoryFormula(inMemoryFormula + comma);
       setCurrentTerm(currentTerm + comma);
@@ -90,7 +91,7 @@ function App() {
 
   const format = (formula) => {
     let newInMem = inMemoryFormula.replaceAll(",", ".");
-    let lastSign = inMemoryFormula.slice(-1);
+    const lastSign = inMemoryFormula.slice(-1);
     if (OPERATORS.indexOf(lastSign) >= 0) {
       newInMem = inMemoryFormula.replace(lastSign, "");
     }
@@ -98,7 +99,7 @@ function App() {
   };
 
   const handleClear = (e) => {
-    let clearSymbol = e.target.value;
+    const clearSymbol = e.target.value;
     if (clearSymbol === "AC") {
       setInMemoryFormula(null);
     }
@@ -127,12 +128,12 @@ function App() {
       return;
     }
     if (startsWithMinus(inMemoryFormula)) {
-      let formulaWithoutMinus = inMemoryFormula.replace("-", "");
+      const formulaWithoutMinus = inMemoryFormula.replace("-", "");
       setInMemoryFormula(formulaWithoutMinus);
       setDisplay(formulaWithoutMinus);
       return;
     }
-    let formulaWithMinus = "-" + inMemoryFormula;
+    const formulaWithMinus = "-" + inMemoryFormula;
     setInMemoryFormula(formulaWithMinus);
     setDisplay(formulaWithMinus);
     return;

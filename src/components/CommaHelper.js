@@ -35,8 +35,8 @@ export default function CommaHelper(inMemoryFormula, currentTerm) {
     if (indices.length < 1) {
       return false;
     }
-    let lastOperatorId = Math.max(indices);
-    let sub = this.inMemoryFormula.substring(lastOperatorId + 1);
+    const lastOperatorId = Math.max(indices);
+    const sub = this.inMemoryFormula.substring(lastOperatorId + 1);
 
     return sub === "";
   };
