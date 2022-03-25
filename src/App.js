@@ -57,23 +57,21 @@ function App() {
     setStartNewTerm(0);
     const helper = new OperatorHelper(inMemoryFormula, currentTerm);
     operator = helper.mapOperator(operator);
-    if (inMemoryFormula === null) {
-      if (operator === "-") {
-        setInMemoryFormula(operator);
-        setDisplay(0);
-        setCurrentTerm("-")
-        return;
-      } else {
-        return;
-      }
-    } else {
-      let lastSign = inMemoryFormula.slice(-1);
-      if (OPERATORS.indexOf(lastSign) < 0) {
-        console.log({lastSign: lastSign})
-        setInMemoryFormula(inMemoryFormula + operator);
-        setCurrentTerm(null);
-      }
+    if (inMemoryFormula === null && operator === "-") {
+      setInMemoryFormula(operator);
+      setDisplay(0);
+      setCurrentTerm("-");
+      return;
     }
+    if (inMemoryFormula === null) {
+      return;
+    }
+    let lastSign = inMemoryFormula.slice(-1);
+    if (OPERATORS.indexOf(lastSign) < 0) {
+      setInMemoryFormula(inMemoryFormula + operator);
+      setCurrentTerm(null);
+    }
+    return;
   };
 
   const equals = () => {
