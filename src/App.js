@@ -4,6 +4,7 @@ import Button from "./components/Button";
 import Digits from "./components/Digits";
 import DigitHelper from "./components/DigitHelper";
 import CommaHelper from "./components/CommaHelper";
+import OperatorHelper from "./components/OperatorHelper";
 
 function App() {
   const [display, setDisplay] = React.useState(0);
@@ -53,35 +54,25 @@ function App() {
 
   const handleOperator = (event) => {
     let operator = event.target.value;
-    // extract to function handleLonelyOperators
-    if (operator === "-" && inMemoryFormula === null) {
-      // show on  "=" press
-      // doesn't show on digit press
-    } else if (inMemoryFormula === null) {
-      // for "," ignore
-      // for "*" "/" ignore
-      // for "+" and "-" show "-"
-    } else if (inMemoryFormula !== null ) {
-      // get last sign from memeory and prevent 2 operators one after another
-      // cases: lastSign ==
-      // digit
-      // operator 
-      // comma
-    }
     setStartNewTerm(0);
-    // extract to mapOperator
-    switch (operator) {
-      case "÷":
-        operator = "/";
-        break;
-      case "x":
-        operator = "*";
-        break;
-    }
-    let lastSign = inMemoryFormula.slice(-1);
-    if (OPERATORS.indexOf(lastSign) < 0) {
-      setInMemoryFormula(inMemoryFormula + operator);
-      setCurrentTerm(null);
+    const helper = new OperatorHelper(inMemoryFormula, currentTerm);
+    operator = helper.mapOperator(operator);
+    if (inMemoryFormula === null) {
+      if (operator === "-") {
+        setInMemoryFormula(operator);
+        setDisplay(0);
+        setCurrentTerm("-")
+        return;
+      } else {
+        return;
+      }
+    } else {
+      let lastSign = inMemoryFormula.slice(-1);
+      if (OPERATORS.indexOf(lastSign) < 0) {
+        console.log({lastSign: lastSign})
+        setInMemoryFormula(inMemoryFormula + operator);
+        setCurrentTerm(null);
+      }
     }
   };
 
