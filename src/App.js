@@ -52,8 +52,24 @@ function App() {
   };
 
   const handleOperator = (event) => {
-    setStartNewTerm(0);
     let operator = event.target.value;
+    // extract to function handleLonelyOperators
+    if (operator === "-" && inMemoryFormula === null) {
+      // show on  "=" press
+      // doesn't show on digit press
+    } else if (inMemoryFormula === null) {
+      // for "," ignore
+      // for "*" "/" ignore
+      // for "+" and "-" show "-"
+    } else if (inMemoryFormula !== null ) {
+      // get last sign from memeory and prevent 2 operators one after another
+      // cases: lastSign ==
+      // digit
+      // operator 
+      // comma
+    }
+    setStartNewTerm(0);
+    // extract to mapOperator
     switch (operator) {
       case "÷":
         operator = "/";
