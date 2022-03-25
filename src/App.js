@@ -96,10 +96,10 @@ function App() {
   };
 
   const format = (formula) => {
-    let newInMem = inMemoryFormula.replaceAll(",", ".");
-    const lastSign = inMemoryFormula.slice(-1);
+    let newInMem = formula.replaceAll(",", ".");
+    const lastSign = formula.slice(-1);
     if (OPERATORS.indexOf(lastSign) >= 0) {
-      newInMem = inMemoryFormula.replace(lastSign, "");
+      newInMem = formula.replace(lastSign, "");
     }
     return newInMem;
   };
