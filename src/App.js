@@ -42,6 +42,7 @@ function App() {
     }
     if (helper.isCommaFirst(comma)) {
       setInMemoryFormula("0,");
+      setCurrentTerm("0,");
       setDisplay("0,");
     }
     if (helper.isCommaFirstAfterLastOperator(comma)) {

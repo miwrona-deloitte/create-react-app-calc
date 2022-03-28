@@ -7,7 +7,7 @@ export default function DigitHelper(inMemoryFormula, currentTerm) {
     if (this.currentTerm === null) {
       return digit;
     } else {
-      return this.currentTerm + digit;
+      return this.trimLeadingZeros(this.currentTerm + digit);
     }
   };
 
@@ -24,10 +24,13 @@ export default function DigitHelper(inMemoryFormula, currentTerm) {
   };
 
   this.trimLeadingZeros = (formula) => {
-    if (formula === "0") { 
+    if (formula === "0") {
       return formula;
     }
-    const leadingZeros = /^0/g;
-    return formula.replaceAll(leadingZeros, "");
+    if (formula.indexOf(",") > 0) {
+      return formula;
+    }
+    const leadingZeros = /(?<=\+|\-\|\*|)0+/g;
+    return formula.replaceAll(leadingZeros, "0");
   };
 }
