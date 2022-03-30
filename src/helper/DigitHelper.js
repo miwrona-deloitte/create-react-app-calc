@@ -1,4 +1,4 @@
-export default function DigitHelper(inMemoryFormula, currentTerm) {
+const DigitHelper = (inMemoryFormula, currentTerm) => {
   this.inMemoryFormula = inMemoryFormula;
   this.currentTerm = currentTerm;
   const OPERATORS = ["/", "*", "-", "+"];
@@ -33,4 +33,5 @@ export default function DigitHelper(inMemoryFormula, currentTerm) {
     const leadingZeros = /(?<=\+|\-\|\*|)0+/g;
     return formula.replaceAll(leadingZeros, "0");
   };
-}
+};
+export default DigitHelper;

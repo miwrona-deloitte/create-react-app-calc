@@ -1,4 +1,4 @@
-export default function OperatorHelper(inMemoryFormula, currentTerm) {
+const OperatorHelper = (inMemoryFormula, currentTerm) => {
   this.inMemoryFormula = inMemoryFormula;
   this.currentTerm = currentTerm;
 
@@ -13,4 +13,6 @@ export default function OperatorHelper(inMemoryFormula, currentTerm) {
     }
     return operator;
   };
-}
+};
+
+export default OperatorHelper;

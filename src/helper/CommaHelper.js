@@ -1,4 +1,4 @@
-export default function CommaHelper(inMemoryFormula, currentTerm) {
+const CommaHelper = (inMemoryFormula, currentTerm) => {
   this.inMemoryFormula = inMemoryFormula;
   this.currentTerm = currentTerm;
   const OPERATORS = ["/", "*", "-", "+"];
@@ -22,7 +22,7 @@ export default function CommaHelper(inMemoryFormula, currentTerm) {
   this.isCommaFirst = (comma) => {
     return this.inMemoryFormula === null && comma === ",";
   };
-  
+
   this.isCommaFirstAfterLastOperator = (comma) => {
     if (this.inMemoryFormula === null) {
       return false;
@@ -40,4 +40,6 @@ export default function CommaHelper(inMemoryFormula, currentTerm) {
 
     return sub === "";
   };
-}
+};
+
+export default CommaHelper;

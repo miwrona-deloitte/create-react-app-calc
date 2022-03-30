@@ -2,9 +2,9 @@ import "./App.css";
 import React from "react";
 import Button from "./components/Button";
 import Digits from "./components/Digits";
-import DigitHelper from "./components/DigitHelper";
-import CommaHelper from "./components/CommaHelper";
-import OperatorHelper from "./components/OperatorHelper";
+import DigitHelper from "./helper/DigitHelper";
+import CommaHelper from "./helper/CommaHelper";
+import OperatorHelper from "./helper/OperatorHelper";
 
 function App() {
   const [display, setDisplay] = React.useState(0);
