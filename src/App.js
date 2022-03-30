@@ -1,10 +1,12 @@
-import "./App.css";
 import React from "react";
 import Button from "./components/Button";
 import Digits from "./components/Digits";
 import DigitHelper from "./helper/DigitHelper";
 import CommaHelper from "./helper/CommaHelper";
 import OperatorHelper from "./helper/OperatorHelper";
+
+import "./App.css";
+import "./components/Button.css";
 
 function App() {
   const [display, setDisplay] = React.useState(0);

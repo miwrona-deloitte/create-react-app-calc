@@ -37,37 +37,6 @@
   display: flex;
 }
 
-.button {
-  width: 55px;
-  height: 46px;
-  line-height: 46px;
-  background-color: rgb(112, 112, 112);
-  border-left: var(--border);
-  border-top:  var(--border);
-  border-bottom: none;
-  border-right: none;
-  color: #fff;
-  text-align: center;
-  font-family: "Arial", sans-serif;
-  font-size: 22px;
-}
-
-.wide {
-  width: 110px !important;
-}
-
-.border-bottom-left-radius {
-  border-bottom-left-radius: 10px;
-}
-
-.border-bottom-right-radius {
-  border-bottom-right-radius: 10px;
-}
-
-.button:hover {
-  cursor: pointer;
-}
-
 .grey-buttons {
   display: flex;
   flex-wrap: wrap;
