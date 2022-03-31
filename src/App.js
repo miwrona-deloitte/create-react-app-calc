@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "./components/Button";
 import Digits from "./components/Digits";
+import { Screen } from "./components/Screen";
 import DigitHelper from "./helper/DigitHelper";
 import CommaHelper from "./helper/CommaHelper";
 import { mapOperator } from "./helper/OperatorHelper";
@@ -157,9 +158,7 @@ function App() {
   return (
     <>
       <div className="calc">
-        <div className="screen">
-          <p className={"display " + displayFont}>{display}</p>
-        </div>
+        <Screen displayValue={display} fontCls={displayFont} />
         <div className="keyboard">
           <div className="grey-buttons">
             <div className="horizontal-symbols">
