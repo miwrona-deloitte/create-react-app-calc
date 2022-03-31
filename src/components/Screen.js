@@ -5,7 +5,9 @@ export const Screen = ({ displayValue }) => {
   }
   return (
     <div className="screen">
-      <p className={"display " + fontCls}>{displayValue}</p>
+      <p className={"display " + fontCls}>
+        {String(displayValue).replace(".", ",")}
+      </p>
     </div>
   );
 };

@@ -7,7 +7,7 @@ import CommaHelper from "./helper/CommaHelper";
 import { mapOperator } from "./helper/OperatorHelper";
 
 import "./App.css";
-import "./components/Screen.css"
+import "./components/Screen.css";
 import "./components/Button.css";
 
 function App() {
@@ -35,8 +35,8 @@ function App() {
     setDisplay(helper.isOperatorInMemory() ? localCurrentDisplay : formula);
   };
 
-  const handleComma = (e) => {
-    const comma = e.target.value;
+  const handleComma = () => {
+    const comma = ".";
     const helper = new CommaHelper(inMemoryFormula, currentTerm, OPERATORS);
     if (helper.canConcatenate(comma)) {
       setInMemoryFormula(inMemoryFormula + comma);
@@ -44,14 +44,14 @@ function App() {
       setDisplay(currentTerm + comma);
     }
     if (helper.isCommaFirst(comma)) {
-      setInMemoryFormula("0,");
-      setCurrentTerm("0,");
-      setDisplay("0,");
+      setInMemoryFormula("0.");
+      setCurrentTerm("0.");
+      setDisplay("0.");
     }
     if (helper.isCommaFirstAfterLastOperator()) {
-      setInMemoryFormula(inMemoryFormula + "0,");
-      setCurrentTerm("0,");
-      setDisplay("0,");
+      setInMemoryFormula(inMemoryFormula + "0.");
+      setCurrentTerm("0.");
+      setDisplay("0.");
     }
     setStartNewTerm(0);
   };
@@ -81,7 +81,8 @@ function App() {
     if (inMemoryFormula === null) {
       return;
     }
-    let result = Function("return " + format(inMemoryFormula))();
+    const helper = new DigitHelper(inMemoryFormula, currentTerm, OPERATORS);
+    let result = Function("return " + format(helper.trimLeadingZeros(inMemoryFormula)))();
     if (result.toString().length > 8) {
       let expResult = Number(result.toExponential(10)).toExponential();
       if (expResult.length > 8) {
@@ -90,15 +91,15 @@ function App() {
         result = parseFloat(expResult);
       }
     }
-    result = String(result).replace(".", ",");
+    result = String(result);
     setInMemoryFormula(result);
     setDisplay(result);
     setStartNewTerm(1);
   };
 
   const format = (formula) => {
-    let newInMem = formula.replaceAll(",", ".");
     const lastSign = formula.slice(-1);
+    let newInMem = formula;
     if (OPERATORS.indexOf(lastSign) >= 0) {
       newInMem = formula.replace(lastSign, "");
     }

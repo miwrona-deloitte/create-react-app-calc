@@ -22,7 +22,7 @@ export default class CommaHelper {
   };
 
   isCommaFirst = (comma) => {
-    return this.inMemoryFormula === null && comma === ",";
+    return this.inMemoryFormula === null && comma === ".";
   };
 
   isCommaFirstAfterLastOperator = () => {
