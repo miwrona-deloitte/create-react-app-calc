@@ -3,7 +3,7 @@ import Button from "./components/Button";
 import Digits from "./components/Digits";
 import DigitHelper from "./helper/DigitHelper";
 import CommaHelper from "./helper/CommaHelper";
-import OperatorHelper from "./helper/OperatorHelper";
+import { mapOperator } from "./helper/OperatorHelper";
 
 import "./App.css";
 import "./components/Button.css";
@@ -19,7 +19,7 @@ function App() {
   const OPERATORS = ["/", "*", "-", "+"];
 
   const handleDigit = (e) => {
-    const helper = new DigitHelper(inMemoryFormula, currentTerm);
+    const helper = new DigitHelper(inMemoryFormula, currentTerm, OPERATORS);
     setClearButton("C");
     const digit = e.target.value;
     let formula =
@@ -36,7 +36,7 @@ function App() {
 
   const handleComma = (e) => {
     const comma = e.target.value;
-    const helper = new CommaHelper(inMemoryFormula, currentTerm);
+    const helper = new CommaHelper(inMemoryFormula, currentTerm, OPERATORS);
     if (helper.canConcatenate(comma)) {
       setInMemoryFormula(inMemoryFormula + comma);
       setCurrentTerm(currentTerm + comma);
@@ -47,7 +47,7 @@ function App() {
       setCurrentTerm("0,");
       setDisplay("0,");
     }
-    if (helper.isCommaFirstAfterLastOperator(comma)) {
+    if (helper.isCommaFirstAfterLastOperator()) {
       setInMemoryFormula(inMemoryFormula + "0,");
       setCurrentTerm("0,");
       setDisplay("0,");
@@ -58,8 +58,7 @@ function App() {
   const handleOperator = (event) => {
     let operator = event.target.value;
     setStartNewTerm(0);
-    const helper = new OperatorHelper(inMemoryFormula, currentTerm);
-    operator = helper.mapOperator(operator);
+    operator = mapOperator(operator);
     if (inMemoryFormula === null && operator === "-") {
       setInMemoryFormula(operator);
       setDisplay(0);

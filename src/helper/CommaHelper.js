@@ -1,9 +1,11 @@
-const CommaHelper = (inMemoryFormula, currentTerm) => {
-  this.inMemoryFormula = inMemoryFormula;
-  this.currentTerm = currentTerm;
-  const OPERATORS = ["/", "*", "-", "+"];
+export default class CommaHelper {
+  constructor(inMemoryFormula, currentTerm, operators) {
+    this.inMemoryFormula = inMemoryFormula;
+    this.currentTerm = currentTerm;
+    this.operators = operators;
+  }
 
-  this.canConcatenate = (comma) => {
+  canConcatenate = (comma) => {
     if (this.inMemoryFormula === null) {
       return true;
     }
@@ -19,16 +21,16 @@ const CommaHelper = (inMemoryFormula, currentTerm) => {
     return false;
   };
 
-  this.isCommaFirst = (comma) => {
+  isCommaFirst = (comma) => {
     return this.inMemoryFormula === null && comma === ",";
   };
 
-  this.isCommaFirstAfterLastOperator = (comma) => {
+  isCommaFirstAfterLastOperator = () => {
     if (this.inMemoryFormula === null) {
       return false;
     }
     let indices = [];
-    for (let operator of OPERATORS) {
+    for (let operator of this.operators) {
       let id = this.inMemoryFormula.lastIndexOf(operator);
       if (id > 0) indices.push(id);
     }
@@ -40,6 +42,4 @@ const CommaHelper = (inMemoryFormula, currentTerm) => {
 
     return sub === "";
   };
-};
-
-export default CommaHelper;
+}

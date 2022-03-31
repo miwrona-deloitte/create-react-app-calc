@@ -1,9 +1,10 @@
-const DigitHelper = (inMemoryFormula, currentTerm) => {
-  this.inMemoryFormula = inMemoryFormula;
-  this.currentTerm = currentTerm;
-  const OPERATORS = ["/", "*", "-", "+"];
-
-  this.getCurrentDisplay = (digit) => {
+export default class DigitHelper {
+  constructor(inMemoryFormula, currentTerm, operators) {
+    this.inMemoryFormula = inMemoryFormula;
+    this.currentTerm = currentTerm;
+    this.operators = operators;
+  }
+  getCurrentDisplay = (digit) => {
     if (this.currentTerm === null) {
       return digit;
     } else {
@@ -11,11 +12,11 @@ const DigitHelper = (inMemoryFormula, currentTerm) => {
     }
   };
 
-  this.isOperatorInMemory = () => {
+  isOperatorInMemory = () => {
     if (this.inMemoryFormula === null) {
       return false;
     }
-    for (let sign of OPERATORS) {
+    for (let sign of this.operators) {
       if (String(this.inMemoryFormula).indexOf(sign) > 0) {
         return true;
       }
@@ -23,7 +24,7 @@ const DigitHelper = (inMemoryFormula, currentTerm) => {
     return false;
   };
 
-  this.trimLeadingZeros = (formula) => {
+  trimLeadingZeros = (formula) => {
     if (formula === "0") {
       return formula;
     }
@@ -33,5 +34,4 @@ const DigitHelper = (inMemoryFormula, currentTerm) => {
     const leadingZeros = /(?<=\+|\-\|\*|)0+/g;
     return formula.replaceAll(leadingZeros, "0");
   };
-};
-export default DigitHelper;
+}
