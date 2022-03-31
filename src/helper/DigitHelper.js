@@ -31,7 +31,7 @@ export default class DigitHelper {
     if (formula.indexOf(",") > 0) {
       return formula;
     }
-    const leadingZeros = /(?<=\+|\-\|\*|)0+/g;
+    const leadingZeros = /^0+|(?<=\+|\-\|\*)0+/g;
     return formula.replaceAll(leadingZeros, "0");
   };
 }
