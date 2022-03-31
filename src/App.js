@@ -7,6 +7,7 @@ import CommaHelper from "./helper/CommaHelper";
 import { mapOperator } from "./helper/OperatorHelper";
 
 import "./App.css";
+import "./components/Screen.css"
 import "./components/Button.css";
 
 function App() {
@@ -15,7 +16,6 @@ function App() {
   const [inMemoryFormula, setInMemoryFormula] = React.useState(null);
   const [clearButton, setClearButton] = React.useState("AC");
   const [startNewTerm, setStartNewTerm] = React.useState(0);
-  const [displayFont, setDisplayFont] = React.useState("regular-font");
 
   const OPERATORS = ["/", "*", "-", "+"];
 
@@ -86,8 +86,6 @@ function App() {
       let expResult = Number(result.toExponential(10)).toExponential();
       if (expResult.length > 8) {
         result = expResult;
-        //change css font size
-        setDisplayFont("small-font");
       } else {
         result = parseFloat(expResult);
       }
@@ -126,7 +124,6 @@ function App() {
     }
     setDisplay("0");
     setCurrentTerm(null);
-    setDisplayFont("regular-font");
   };
 
   /**
@@ -158,7 +155,7 @@ function App() {
   return (
     <>
       <div className="calc">
-        <Screen displayValue={display} fontCls={displayFont} />
+        <Screen displayValue={display} />
         <div className="keyboard">
           <div className="grey-buttons">
             <div className="horizontal-symbols">

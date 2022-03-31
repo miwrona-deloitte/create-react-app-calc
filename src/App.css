@@ -6,33 +6,6 @@
   padding: 10px;
 }
 
-.screen {
-  height: 78px;
-  background-color: #000000c7;
-  width: 218px;
-  display: flex;
-  justify-content: flex-end;
-  border-radius: 10px 10px 0 0;
-  border:  var(--border);
-}
-
-.screen > .display {
-  color: #fff;
-  padding-right: 10px;
-  padding-top: 10px;
-  position: relative;
-  top: -25px;
-  font-family: "Courier New", monospace;
-}
-
-.display-font {
-  font-size: 25px;
-}
-
-.regular-font {
-  font-size: 45px;
-}
-
 .keyboard {
   display: flex;
 }
