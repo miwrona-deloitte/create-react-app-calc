@@ -85,6 +85,9 @@ function App() {
     let result = Function(
       "return " + format(helper.trimLeadingZeros(inMemoryFormula))
     )();
+    if (result === "" || result === undefined) {
+      result = 0;
+    }
     if (result.toString().length > 8) {
       let expResult = Number(result.toExponential(10)).toExponential();
       if (expResult.length > 8) {
