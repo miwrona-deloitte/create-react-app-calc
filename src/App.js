@@ -82,7 +82,9 @@ function App() {
       return;
     }
     const helper = new DigitHelper(inMemoryFormula, currentTerm, OPERATORS);
-    let result = Function("return " + format(helper.trimLeadingZeros(inMemoryFormula)))();
+    let result = Function(
+      "return " + format(helper.trimLeadingZeros(inMemoryFormula))
+    )();
     if (result.toString().length > 8) {
       let expResult = Number(result.toExponential(10)).toExponential();
       if (expResult.length > 8) {
@@ -154,6 +156,16 @@ function App() {
     return false;
   };
 
+  const handlePercent = () => {
+    setInMemoryFormula(divideByNumber(inMemoryFormula, 100));
+    setDisplay(divideByNumber(display, 100));
+    setCurrentTerm(divideByNumber(currentTerm, 100));
+  };
+
+  const divideByNumber = (value, number) => {
+    return String(Number(value) / number);
+  };
+
   return (
     <>
       <div className="calc">
@@ -163,7 +175,7 @@ function App() {
             <div className="horizontal-symbols">
               <Button onButtonClick={handleClear} sign={clearButton} />
               <Button sign="+/-" onButtonClick={reverseSign} />
-              <Button sign="%" />
+              <Button sign="%" onButtonClick={handlePercent} />
             </div>
             <Digits handleDigit={handleDigit} handleComma={handleComma} />
           </div>
