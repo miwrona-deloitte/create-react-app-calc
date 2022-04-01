@@ -94,6 +94,7 @@ function App() {
     result = String(result);
     setInMemoryFormula(result);
     setDisplay(result);
+    setCurrentTerm(null);
     setStartNewTerm(1);
   };
 
