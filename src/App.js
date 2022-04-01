@@ -63,10 +63,10 @@ function App() {
     if (inMemoryFormula === null && operator === "-") {
       setInMemoryFormula(operator);
       setDisplay(0);
-      setCurrentTerm("-");
+      setCurrentTerm(operator);
       return;
     }
-    if (inMemoryFormula === null) {
+    if (inMemoryFormula === null || inMemoryFormula === "") {
       return;
     }
     let lastSign = inMemoryFormula.slice(-1);
