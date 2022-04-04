@@ -1,5 +1,5 @@
 import Button from "./Button";
-import "./HorizontalSymbols.css";
+import "./HorizontalSymbols.scss";
 
 const HorizontalSymbols = (props) => {
   return (

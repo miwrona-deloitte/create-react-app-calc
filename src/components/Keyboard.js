@@ -2,8 +2,8 @@ import HorizontalSymbols from "./HorizontalSymbols";
 import VerticalSymbols from "./VerticalSymbols";
 import Digits from "./Digits";
 
-import "./Keyboard.css";
-import "./Button.css";
+import "./Keyboard.scss";
+import "./Button.scss";
 
 const Keyboard = (props) => {
   return (

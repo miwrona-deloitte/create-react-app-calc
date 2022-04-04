@@ -1,4 +1,4 @@
-import "./Screen.css";
+import "./Screen.scss";
 
 export const Screen = ({ displayValue }) => {
   let fontCls = "regular-font";

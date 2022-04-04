@@ -13,7 +13,7 @@ import {
 } from "./helper/CommaHelper";
 import { mapOperator } from "./helper/OperatorHelper";
 
-import "./App.css";
+import "./App.scss";
 
 function App() {
   const [display, setDisplay] = React.useState(0);

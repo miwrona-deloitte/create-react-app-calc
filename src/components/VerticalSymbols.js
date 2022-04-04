@@ -1,5 +1,5 @@
 import Button from "./Button";
-import "./VerticalSymbols.css";
+import "./VerticalSymbols.scss";
 
 const VerticalSymbols = (props) => {
   return (
