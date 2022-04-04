@@ -1,14 +1,20 @@
+@use "../variables.scss" as v;
+
 .vertical-symbols {
   display: flex;
   flex-wrap: wrap;
-  width: 55px;
+  width: v.$buttonWidth;
 }
 
-.vertical-symbols > .button:nth-last-child(1) {
-  border-bottom: var(--border);
+.vertical-symbols {
+  .button:nth-last-child(1) {
+    border-bottom: v.$border;
+  }
 }
 
-.vertical-symbols > .button {
-  background-color: rgba(255, 153, 0, 0.87);
-  border-right: var(--border);
+.vertical-symbols {
+  .button {
+    background-color: v.$lightOrange;
+    border-right: v.$border;
+  }
 }

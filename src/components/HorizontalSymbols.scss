@@ -1,3 +1,7 @@
-.horizontal-symbols button {
-  background-color: #383838e0;
+@use "../variables.scss" as v;
+
+.horizontal-symbols {
+  button {
+    background-color: v.$grey;
+  }
 }

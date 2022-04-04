@@ -1,3 +1,5 @@
+@use "../variables.scss" as v;
+
 .small-font {
   font-size: 16px;
 }
@@ -8,19 +10,21 @@
 
 .screen {
   height: 78px;
-  background-color: #000000c7;
-  width: 218px;
+  background-color: v.$graphite;
+  width: 4 * v.$buttonWidth - 2 * v.$borderWidth;
   display: flex;
   justify-content: flex-end;
-  border-radius: 10px 10px 0 0;
-  border: var(--border);
+  border-radius: v.$borderRadius v.$borderRadius 0 0;
+  border: v.$border;
 }
 
-.screen > .display {
-  color: #fff;
-  padding-right: 10px;
-  padding-top: 10px;
-  position: relative;
-  top: -25px;
-  font-family: "Courier New", monospace;
+.screen {
+  .display {
+    color: v.$white;
+    padding-right: 10px;
+    padding-top: 10px;
+    position: relative;
+    top: -25px;
+    font-family: "Courier New", monospace;
+  }
 }

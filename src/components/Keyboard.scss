@@ -1,3 +1,5 @@
+@use "../variables.scss" as v;
+
 .keyboard {
   display: flex;
 }
@@ -5,5 +7,5 @@
 .grey-buttons {
   display: flex;
   flex-wrap: wrap;
-  width: 165px;
+  width: v.$buttonWidth * 3;
 }
