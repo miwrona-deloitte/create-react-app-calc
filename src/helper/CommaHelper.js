@@ -1,45 +1,37 @@
-export default class CommaHelper {
-  constructor(inMemoryFormula, currentTerm, operators) {
-    this.inMemoryFormula = inMemoryFormula;
-    this.currentTerm = currentTerm;
-    this.operators = operators;
+export const canConcatenate = (comma, inMemoryFormula, currentTerm) => {
+  if (inMemoryFormula === null) {
+    return true;
   }
+  if (inMemoryFormula.indexOf(comma) < 0) {
+    return true;
+  }
+  if (currentTerm === null) {
+    return true;
+  }
+  if (currentTerm.indexOf(comma) < 0) {
+    return true;
+  }
+  return false;
+};
 
-  canConcatenate = (comma) => {
-    if (this.inMemoryFormula === null) {
-      return true;
-    }
-    if (this.inMemoryFormula.indexOf(comma) < 0) {
-      return true;
-    }
-    if (this.currentTerm === null) {
-      return true;
-    }
-    if (this.currentTerm.indexOf(comma) < 0) {
-      return true;
-    }
+export const isCommaFirst = (comma, inMemoryFormula) => {
+  return inMemoryFormula === null && comma === ".";
+};
+
+export const isCommaFirstAfterLastOperator = (inMemoryFormula, operators) => {
+  if (inMemoryFormula === null) {
     return false;
-  };
+  }
+  let indices = [];
+  for (let operator of operators) {
+    let id = inMemoryFormula.lastIndexOf(operator);
+    if (id > 0) indices.push(id);
+  }
+  if (indices.length < 1) {
+    return false;
+  }
+  const lastOperatorId = Math.max(indices);
+  const sub = inMemoryFormula.substring(lastOperatorId + 1);
 
-  isCommaFirst = (comma) => {
-    return this.inMemoryFormula === null && comma === ".";
-  };
-
-  isCommaFirstAfterLastOperator = () => {
-    if (this.inMemoryFormula === null) {
-      return false;
-    }
-    let indices = [];
-    for (let operator of this.operators) {
-      let id = this.inMemoryFormula.lastIndexOf(operator);
-      if (id > 0) indices.push(id);
-    }
-    if (indices.length < 1) {
-      return false;
-    }
-    const lastOperatorId = Math.max(indices);
-    const sub = this.inMemoryFormula.substring(lastOperatorId + 1);
-
-    return sub === "";
-  };
-}
+  return sub === "";
+};

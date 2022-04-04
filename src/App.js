@@ -1,8 +1,16 @@
 import React from "react";
 import { Screen } from "./components/Screen";
 import Keyboard from "./components/Keyboard";
-import DigitHelper from "./helper/DigitHelper";
-import CommaHelper from "./helper/CommaHelper";
+import {
+  getCurrentDisplay,
+  isOperatorInMemory,
+  trimLeadingZeros,
+} from "./helper/DigitHelper";
+import {
+  canConcatenate,
+  isCommaFirst,
+  isCommaFirstAfterLastOperator,
+} from "./helper/CommaHelper";
 import { mapOperator } from "./helper/OperatorHelper";
 
 import "./App.css";
@@ -17,7 +25,6 @@ function App() {
   const OPERATORS = ["/", "*", "-", "+"];
 
   const handleDigit = (e) => {
-    const helper = new DigitHelper(inMemoryFormula, currentTerm, OPERATORS);
     setClearButton("C");
     const digit = e.target.value;
     let formula =
@@ -25,27 +32,30 @@ function App() {
         ? digit
         : inMemoryFormula + digit;
     setStartNewTerm(0);
-    formula = helper.trimLeadingZeros(formula);
+    formula = trimLeadingZeros(formula);
     setInMemoryFormula(formula);
-    const localCurrentDisplay = helper.getCurrentDisplay(digit);
-    setCurrentTerm(localCurrentDisplay);
-    setDisplay(helper.isOperatorInMemory() ? localCurrentDisplay : formula);
+    const localCurrentDisplay = getCurrentDisplay(digit, currentTerm);
+    setCurrentTerm(getCurrentDisplay(digit, currentTerm));
+    setDisplay(
+      isOperatorInMemory(inMemoryFormula, OPERATORS)
+        ? localCurrentDisplay
+        : formula
+    );
   };
 
   const handleComma = () => {
     const comma = ".";
-    const helper = new CommaHelper(inMemoryFormula, currentTerm, OPERATORS);
-    if (helper.canConcatenate(comma)) {
+    if (canConcatenate(comma, inMemoryFormula, currentTerm)) {
       setInMemoryFormula(inMemoryFormula + comma);
       setCurrentTerm(currentTerm + comma);
       setDisplay(currentTerm + comma);
     }
-    if (helper.isCommaFirst(comma)) {
+    if (isCommaFirst(comma, inMemoryFormula)) {
       setInMemoryFormula("0.");
       setCurrentTerm("0.");
       setDisplay("0.");
     }
-    if (helper.isCommaFirstAfterLastOperator()) {
+    if (isCommaFirstAfterLastOperator(inMemoryFormula, OPERATORS)) {
       setInMemoryFormula(inMemoryFormula + "0.");
       setCurrentTerm("0.");
       setDisplay("0.");
@@ -78,9 +88,8 @@ function App() {
     if (inMemoryFormula === null) {
       return;
     }
-    const helper = new DigitHelper(inMemoryFormula, currentTerm, OPERATORS);
     let result = Function(
-      "return " + format(helper.trimLeadingZeros(inMemoryFormula))
+      "return " + format(trimLeadingZeros(inMemoryFormula))
     )();
     if (result === "" || result === undefined) {
       result = 0;
