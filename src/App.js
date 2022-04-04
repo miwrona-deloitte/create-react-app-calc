@@ -81,7 +81,6 @@ function App() {
       setInMemoryFormula(inMemoryFormula + operator);
       setCurrentTerm(null);
     }
-    return;
   };
 
   const equals = () => {
@@ -155,7 +154,6 @@ function App() {
     const formulaWithMinus = "-" + inMemoryFormula;
     setInMemoryFormula(formulaWithMinus);
     setDisplay(formulaWithMinus);
-    return;
   };
 
   const startsWithMinus = () => {
