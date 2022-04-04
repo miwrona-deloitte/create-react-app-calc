@@ -1,3 +1,5 @@
+import "./Screen.css";
+
 export const Screen = ({ displayValue }) => {
   let fontCls = "regular-font";
   if (displayValue.length > 7) {

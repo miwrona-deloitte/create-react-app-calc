@@ -1,4 +1,5 @@
 import Button from "./Button";
+import "./Digits.css";
 const Digits = ({ handleDigit, handleComma }) => {
   const getButtons = () => {
     const digits = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0];

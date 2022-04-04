@@ -6,8 +6,6 @@ import CommaHelper from "./helper/CommaHelper";
 import { mapOperator } from "./helper/OperatorHelper";
 
 import "./App.css";
-import "./components/Screen.css";
-import "./components/Button.css";
 
 function App() {
   const [display, setDisplay] = React.useState(0);

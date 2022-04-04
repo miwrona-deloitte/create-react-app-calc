@@ -2,6 +2,9 @@ import HorizontalSymbols from "./HorizontalSymbols";
 import VerticalSymbols from "./VerticalSymbols";
 import Digits from "./Digits";
 
+import "./Keyboard.css";
+import "./Button.css";
+
 const Keyboard = (props) => {
   return (
     <div className="keyboard">

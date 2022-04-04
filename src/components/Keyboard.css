@@ -1,0 +1,9 @@
+.keyboard {
+  display: flex;
+}
+
+.grey-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  width: 165px;
+}

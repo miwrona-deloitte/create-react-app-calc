@@ -1,4 +1,5 @@
 import Button from "./Button";
+import "./HorizontalSymbols.css";
 
 const HorizontalSymbols = (props) => {
   return (

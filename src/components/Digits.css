@@ -1,0 +1,3 @@
+.digits > .button:nth-last-of-type(-n + 2) {
+  border-bottom: var(--border);
+}

@@ -5,36 +5,3 @@
 .calc {
   padding: 10px;
 }
-
-.keyboard {
-  display: flex;
-}
-
-.grey-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  width: 165px;
-}
-
-.digits > .button:nth-last-of-type(-n + 2) {
-  border-bottom:  var(--border);
-}
-
-.horizontal-symbols button {
-  background-color: #383838e0;
-}
-
-.vertical-symbols > .button:nth-last-child(1) {
-  border-bottom:  var(--border);
-}
-
-.vertical-symbols {
-  display: flex;
-  flex-wrap: wrap;
-  width: 55px;
-}
-
-.vertical-symbols > .button {
-  background-color: rgba(255, 153, 0, 0.87);
-  border-right:  var(--border);
-}
