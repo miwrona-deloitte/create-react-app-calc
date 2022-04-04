@@ -170,7 +170,6 @@ function App() {
   };
 
   return (
-    <>
       <div className="calc">
         <Screen displayValue={display} />
         <div className="keyboard">
@@ -191,7 +190,6 @@ function App() {
           </div>
         </div>
       </div>
-    </>
   );
 }
 
