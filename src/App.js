@@ -1,7 +1,6 @@
 import React from "react";
-import Button from "./components/Button";
-import Digits from "./components/Digits";
 import { Screen } from "./components/Screen";
+import Keyboard from "./components/Keyboard";
 import DigitHelper from "./helper/DigitHelper";
 import CommaHelper from "./helper/CommaHelper";
 import { mapOperator } from "./helper/OperatorHelper";
@@ -170,26 +169,22 @@ function App() {
   };
 
   return (
-      <div className="calc">
-        <Screen displayValue={display} />
-        <div className="keyboard">
-          <div className="grey-buttons">
-            <div className="horizontal-symbols">
-              <Button onButtonClick={handleClear} sign={clearButton} />
-              <Button sign="+/-" onButtonClick={reverseSign} />
-              <Button sign="%" onButtonClick={handlePercent} />
-            </div>
-            <Digits handleDigit={handleDigit} handleComma={handleComma} />
-          </div>
-          <div className="vertical-symbols">
-            <Button sign="÷" onButtonClick={handleOperator} />
-            <Button sign="x" onButtonClick={handleOperator} />
-            <Button sign="-" onButtonClick={handleOperator} />
-            <Button sign="+" onButtonClick={handleOperator} />
-            <Button sign="=" onButtonClick={equals} />
-          </div>
-        </div>
-      </div>
+    <div className="calc">
+      <Screen displayValue={display} />
+      <Keyboard
+        currentTerm={currentTerm}
+        display={display}
+        inMemoryFormula={inMemoryFormula}
+        clearButton={clearButton}
+        handleClear={handleClear}
+        reverseSign={reverseSign}
+        handlePercent={handlePercent}
+        handleDigit={handleDigit}
+        handleComma={handleComma}
+        handleOperator={handleOperator}
+        equals={equals}
+      />
+    </div>
   );
 }
 
