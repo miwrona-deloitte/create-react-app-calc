@@ -17,9 +17,6 @@
   border-right: v.$border;
 }
 
-// .vertical-symbols {
-//   .button {
-//     background-color: v.$lightOrange;
-//     border-right: v.$border;
-//   }
-// }
+.vertical-symbols__button--width-normal {
+  width: v.$buttonWidth;
+}

@@ -8,7 +8,7 @@ const VerticalSymbols = (props) => {
     operators.forEach((operator) => {
       buttons.push(
         <Button
-          className="vertical-symbols__button-orange"
+          className="vertical-symbols__button-orange vertical-symbols__button--width-normal"
           sign={operator}
           onButtonClick={props.handleOperator}
         />
@@ -20,7 +20,7 @@ const VerticalSymbols = (props) => {
     <div className="vertical-symbols">
       {getButtons()}
       <Button
-        className="vertical-symbols__button-orange"
+        className="vertical-symbols__button-orange vertical-symbols__button--width-normal border-bottom-right-radius"
         sign="="
         onButtonClick={props.equals}
       />

@@ -2,4 +2,9 @@
 
 .horizontal-symbols--button-grey {
   background-color: v.$grey;
+  border-right: none;
+}
+
+.horizontal-symbols__button--width-normal {
+  width: v.$buttonWidth;
 }

@@ -7,9 +7,14 @@
 }
 
 .digits__button--lightgrey {
-    background-color: v.$lightGrey;
+  background-color: v.$lightGrey;
+  border-right: none;
 }
 
 .digits__button--width-wide {
   width: 110px;
+}
+
+.digits__button--width-normal {
+  width: v.$buttonWidth;
 }
