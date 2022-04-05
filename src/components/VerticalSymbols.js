@@ -2,13 +2,28 @@ import Button from "./Button";
 import "./VerticalSymbols.scss";
 
 const VerticalSymbols = (props) => {
+  const getButtons = () => {
+    const operators = ["/", "*", "-", "+"];
+    const buttons = [];
+    operators.forEach((operator) => {
+      buttons.push(
+        <Button
+          className="vertical-symbols__button-orange"
+          sign={operator}
+          onButtonClick={props.handleOperator}
+        />
+      );
+    });
+    return buttons;
+  };
   return (
     <div className="vertical-symbols">
-      <Button sign="÷" onButtonClick={props.handleOperator} />
-      <Button sign="x" onButtonClick={props.handleOperator} />
-      <Button sign="-" onButtonClick={props.handleOperator} />
-      <Button sign="+" onButtonClick={props.handleOperator} />
-      <Button sign="=" onButtonClick={props.equals} />
+      {getButtons()}
+      <Button
+        className="vertical-symbols__button-orange"
+        sign="="
+        onButtonClick={props.equals}
+      />
     </div>
   );
 };

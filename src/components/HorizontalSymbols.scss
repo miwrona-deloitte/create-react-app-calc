@@ -1,7 +1,5 @@
 @use "../variables.scss" as v;
 
-.horizontal-symbols {
-  button {
-    background-color: v.$grey;
-  }
+.horizontal-symbols--button-grey {
+  background-color: v.$grey;
 }

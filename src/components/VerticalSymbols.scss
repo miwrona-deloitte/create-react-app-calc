@@ -12,9 +12,14 @@
   }
 }
 
-.vertical-symbols {
-  .button {
-    background-color: v.$lightOrange;
-    border-right: v.$border;
-  }
+.vertical-symbols__button-orange {
+  background-color: v.$lightOrange;
+  border-right: v.$border;
 }
+
+// .vertical-symbols {
+//   .button {
+//     background-color: v.$lightOrange;
+//     border-right: v.$border;
+//   }
+// }

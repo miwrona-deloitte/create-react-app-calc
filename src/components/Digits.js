@@ -6,11 +6,21 @@ const Digits = ({ handleDigit, handleComma }) => {
     const buttons = [];
     digits.forEach((digit) => {
       buttons.push(
-        <Button onButtonClick={handleDigit} sign={digit} key={digit} />
+        <Button
+          onButtonClick={handleDigit}
+          sign={digit}
+          key={digit}
+          className="digits__button--lightgrey"
+        />
       );
     });
     buttons.push(
-      <Button onButtonClick={handleComma} sign={","} key={"comma"} />
+      <Button
+        onButtonClick={handleComma}
+        sign={","}
+        key={"comma"}
+        className="digits__button--lightgrey"
+      />
     );
     return buttons;
   };
