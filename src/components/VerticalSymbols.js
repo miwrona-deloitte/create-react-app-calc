@@ -20,7 +20,7 @@ const VerticalSymbols = (props) => {
     <div className="vertical-symbols">
       {getButtons()}
       <Button
-        className="vertical-symbols__button-orange vertical-symbols__button--width-normal border-bottom-right-radius"
+        className="vertical-symbols__button-orange vertical-symbols__button--width-normal keyboard--border-bottom-right-radius"
         sign="="
         onButtonClick={props.equals}
       />

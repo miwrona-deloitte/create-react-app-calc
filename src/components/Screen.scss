@@ -1,10 +1,10 @@
 @use "../variables.scss" as v;
 
-.small-font {
+.screen--font-small {
   font-size: 16px;
 }
 
-.regular-font {
+.screen--font-regular {
   font-size: 45px;
 }
 
@@ -18,13 +18,11 @@
   border: v.$border;
 }
 
-.screen {
-  .display {
-    color: v.$white;
-    padding-right: 10px;
-    padding-top: 10px;
-    position: relative;
-    top: -25px;
-    font-family: "Courier New", monospace;
-  }
+.screen__display {
+  color: v.$white;
+  padding-right: 10px;
+  padding-top: 10px;
+  position: relative;
+  top: -25px;
+  font-family: "Courier New", monospace;
 }

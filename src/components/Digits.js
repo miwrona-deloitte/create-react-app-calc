@@ -8,7 +8,7 @@ const Digits = ({ handleDigit, handleComma }) => {
       let btnClsName = "digits__button--lightgrey";
       if (digit === 0) {
         btnClsName =
-          btnClsName + " digits__button--width-wide border-bottom-left-radius";
+          btnClsName + " digits__button--width-wide keyboard--border-bottom-left-radius";
       } else {
         btnClsName = btnClsName + " digits__button--width-normal";
       }
