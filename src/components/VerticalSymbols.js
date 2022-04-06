@@ -11,6 +11,7 @@ const VerticalSymbols = (props) => {
           className="vertical-symbols__button-orange vertical-symbols__button--width-normal"
           sign={operator}
           onButtonClick={props.handleOperator}
+          key={operator}
         />
       );
     });
