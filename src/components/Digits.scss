@@ -1,12 +1,11 @@
-@use "../variables.scss" as v;
-
+@use "../variables" as *;
 .digits {
   .button:nth-last-of-type(-n + 2) {
-    border-bottom: v.$border;
+    border-bottom: $border;
   }
 
   &__button--lightgrey {
-    background-color: v.$lightGrey;
+    background-color: $lightGrey;
     border-right: none;
   }
 
@@ -15,6 +14,6 @@
   }
 
   &__button--width-normal {
-    width: v.$buttonWidth;
+    width: $buttonWidth;
   }
 }

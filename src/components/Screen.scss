@@ -1,13 +1,13 @@
-@use "../variables.scss" as v;
+@use "../variables.scss" as *;
 
 .screen {
   height: 78px;
-  background-color: v.$graphite;
-  width: 4 * v.$buttonWidth - 2 * v.$borderWidth;
+  background-color: $graphite;
+  width: 4 * $buttonWidth - 2 * $borderWidth;
   display: flex;
   justify-content: flex-end;
-  border-radius: v.$borderRadius v.$borderRadius 0 0;
-  border: v.$border;
+  border-radius: $borderRadius $borderRadius 0 0;
+  border: $border;
 
   &--font-small {
     font-size: 16px;
@@ -18,7 +18,7 @@
   }
 
   &__display {
-    color: v.$white;
+    color: $white;
     padding-right: 10px;
     padding-top: 10px;
     position: relative;

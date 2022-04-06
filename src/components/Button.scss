@@ -1,12 +1,12 @@
-@use "../variables.scss" as v;
+@use "../variables" as *;
 
 .button {
-  height: v.$buttonHeight;
-  line-height: v.$buttonHeight;
-  border-left: v.$border;
-  border-top: v.$border;
+  height: $buttonHeight;
+  line-height: $buttonHeight;
+  border-left: $border;
+  border-top: $border;
   border-bottom: none;
-  color: v.$white;
+  color: $white;
   text-align: center;
   font-family: "Arial", sans-serif;
   font-size: 22px;

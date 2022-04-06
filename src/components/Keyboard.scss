@@ -1,19 +1,19 @@
-@use "../variables.scss" as v;
+@use "../variables.scss" as *;
 
 .keyboard {
   display: flex;
 
   &--border-bottom-left-radius {
-    border-bottom-left-radius: v.$borderRadius;
+    border-bottom-left-radius: $borderRadius;
   }
 
   &--border-bottom-right-radius {
-    border-bottom-right-radius: v.$borderRadius;
+    border-bottom-right-radius: $borderRadius;
   }
 }
 
 .grey-buttons {
   display: flex;
   flex-wrap: wrap;
-  width: v.$buttonWidth * 3;
+  width: $buttonWidth * 3;
 }
