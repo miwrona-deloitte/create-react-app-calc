@@ -157,10 +157,7 @@ function App() {
   };
 
   const startsWithMinus = () => {
-    if (inMemoryFormula.indexOf("-") === 0) {
-      return true;
-    }
-    return false;
+    return inMemoryFormula.indexOf("-") === 0;
   };
 
   const handlePercent = () => {
