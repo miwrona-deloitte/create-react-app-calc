@@ -1,13 +1,5 @@
 @use "../variables.scss" as v;
 
-.screen--font-small {
-  font-size: 16px;
-}
-
-.screen--font-regular {
-  font-size: 45px;
-}
-
 .screen {
   height: 78px;
   background-color: v.$graphite;
@@ -16,13 +8,21 @@
   justify-content: flex-end;
   border-radius: v.$borderRadius v.$borderRadius 0 0;
   border: v.$border;
-}
 
-.screen__display {
-  color: v.$white;
-  padding-right: 10px;
-  padding-top: 10px;
-  position: relative;
-  top: -25px;
-  font-family: "Courier New", monospace;
+  &--font-small {
+    font-size: 16px;
+  }
+
+  &--font-regular {
+    font-size: 45px;
+  }
+
+  &__display {
+    color: v.$white;
+    padding-right: 10px;
+    padding-top: 10px;
+    position: relative;
+    top: -25px;
+    font-family: "Courier New", monospace;
+  }
 }

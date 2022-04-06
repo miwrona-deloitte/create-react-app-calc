@@ -4,17 +4,17 @@
   .button:nth-last-of-type(-n + 2) {
     border-bottom: v.$border;
   }
-}
 
-.digits__button--lightgrey {
-  background-color: v.$lightGrey;
-  border-right: none;
-}
+  &__button--lightgrey {
+    background-color: v.$lightGrey;
+    border-right: none;
+  }
 
-.digits__button--width-wide {
-  width: 110px;
-}
+  &__button--width-wide {
+    width: 110px;
+  }
 
-.digits__button--width-normal {
-  width: v.$buttonWidth;
+  &__button--width-normal {
+    width: v.$buttonWidth;
+  }
 }

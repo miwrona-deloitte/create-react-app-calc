@@ -1,10 +1,12 @@
 @use "../variables.scss" as v;
 
-.horizontal-symbols--button-grey {
-  background-color: v.$grey;
-  border-right: none;
-}
+.horizontal-symbols {
+  &--button-grey {
+    background-color: v.$grey;
+    border-right: none;
+  }
 
-.horizontal-symbols__button--width-normal {
-  width: v.$buttonWidth;
+  &__button--width-normal {
+    width: v.$buttonWidth;
+  }
 }

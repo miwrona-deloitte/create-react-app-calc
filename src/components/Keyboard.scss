@@ -2,6 +2,14 @@
 
 .keyboard {
   display: flex;
+
+  &--border-bottom-left-radius {
+    border-bottom-left-radius: v.$borderRadius;
+  }
+
+  &--border-bottom-right-radius {
+    border-bottom-right-radius: v.$borderRadius;
+  }
 }
 
 .grey-buttons {
