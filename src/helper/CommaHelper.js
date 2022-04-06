@@ -23,7 +23,7 @@ export const isCommaFirstAfterLastOperator = (inMemoryFormula, operators) => {
     return false;
   }
   let indices = [];
-  for (let operator of operators) {
+  for (const operator of operators) {
     let id = inMemoryFormula.lastIndexOf(operator);
     if (id > 0) indices.push(id);
   }

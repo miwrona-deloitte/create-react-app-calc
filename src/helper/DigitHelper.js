@@ -21,7 +21,7 @@ export const isOperatorInMemory = (inMemoryFormula, operators) => {
   if (inMemoryFormula === null) {
     return false;
   }
-  for (let sign of operators) {
+  for (const sign of operators) {
     if (String(inMemoryFormula).indexOf(sign) > 0) {
       return true;
     }

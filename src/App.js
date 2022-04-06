@@ -126,7 +126,7 @@ function App() {
       setClearButton("AC");
       let newInMem = inMemoryFormula.replace(currentTerm, "");
       let lastSign = newInMem.slice(-1);
-      for (let sign of OPERATORS) {
+      for (const sign of OPERATORS) {
         if (OPERATORS.indexOf(lastSign) >= 0) {
           newInMem = newInMem.replace(sign, "");
         }
